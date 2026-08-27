@@ -18,12 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         infinite: false,
     });
     
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    
     // Connect GSAP ScrollTrigger to Lenis
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time)=>{
