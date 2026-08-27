@@ -35,8 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLogoLink = document.querySelector('.nav-brand a');
     if (navLogoLink) {
         navLogoLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            lenis.scrollTo(0, { duration: 1.5 });
+            const url = new URL(navLogoLink.href);
+            if (url.pathname === window.location.pathname) {
+                e.preventDefault();
+                lenis.scrollTo(0, { duration: 1.5 });
+            }
         });
     }
 
@@ -44,8 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
             
             // If mobile menu is open, close it
             if(document.querySelector('.mobile-nav').classList.contains('active')) {
@@ -53,8 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.menu-trigger').classList.remove('active');
             }
 
-            if(targetId && targetId !== '#') {
-                lenis.scrollTo(targetId, { duration: 1.5, offset: -100 });
+            try {
+                const url = new URL(link.href);
+                // Only intercept if it's a hash link on the CURRENT page
+                if (url.pathname === window.location.pathname && url.hash) {
+                    e.preventDefault();
+                    lenis.scrollTo(url.hash, { duration: 1.5, offset: -100 });
+                }
+            } catch (err) {
+                // Let default happen if URL parsing fails
             }
         });
     });
@@ -391,4 +399,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         animatePetals();
     }
+
+    /* =========================================
+       9. GALLERY VIDEO MUTE BUTTONS
+    ========================================= */
+    const muteButtons = document.querySelectorAll('.mute-btn-overlay');
+    muteButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const container = btn.closest('.video-container');
+            if (container) {
+                const video = container.querySelector('video');
+                if (video) {
+                    video.muted = !video.muted;
+                    
+                    const iconMuted = btn.querySelector('.icon-muted');
+                    const iconUnmuted = btn.querySelector('.icon-unmuted');
+                    
+                    if (video.muted) {
+                        iconMuted.classList.remove('hidden');
+                        iconUnmuted.classList.add('hidden');
+                    } else {
+                        iconMuted.classList.add('hidden');
+                        iconUnmuted.classList.remove('hidden');
+                    }
+                }
+            }
+        });
+    });
+
 });
+

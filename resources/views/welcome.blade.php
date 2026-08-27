@@ -1,73 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yunara Productions | Luxury Event Management</title>
-    <meta name="description" content="Florida's premier luxury event management and production company. Experience Omotenashi.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+@extends('layouts.app')
 
-    <!-- Loading Screen -->
-    <div class="loader">
-        <div class="loader-content">
-            <img src="{{ asset('assets/logo.png') }}" alt="Yunara Logo" class="loader-svg">
-            <h1 class="loader-logo" style="font-family: 'Amanojaku', serif;">Yunara</h1>
-            <div class="loader-progress"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="luxury-nav">
-        <div class="nav-brand">
-            <a href="#"><img src="{{ asset('assets/logo.png') }}" alt="Yunara" class="nav-logo"></a>
-        </div>
-        
-        <div class="nav-links">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#philosophy" class="nav-link">About</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#portfolio" class="nav-link">Portfolio</a>
-            <a href="#industries" class="nav-link">Industries</a>
-            <a href="#resources" class="nav-link">Resources</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
-
-        <div class="nav-menu">
-            <button class="menu-trigger">
-                <span>Menu</span>
-                <div class="menu-lines">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav">
-        <div class="mobile-nav-links">
-            <a href="#home" class="mobile-link">Home</a>
-            <a href="#philosophy" class="mobile-link">About</a>
-            <a href="#services" class="mobile-link">Services</a>
-            <a href="#portfolio" class="mobile-link">Portfolio</a>
-            <a href="#industries" class="mobile-link">Industries</a>
-            <a href="#resources" class="mobile-link">Resources</a>
-            <a href="#contact" class="mobile-link">Contact</a>
-        </div>
-    </div>
-
+@section('content')
     <!-- 1. Premium Hero -->
     <section class="section hero" id="home">
         <!-- Parallax Background -->
@@ -86,14 +19,14 @@
     </section>
 
     <!-- 2. Omotenashi Philosophy -->
-    <section class="section philosophy bg-surface editorial-border" style="margin: 5vw; border-radius: 0;" id="philosophy">
+    <section class="section philosophy bg-surface editorial-border" id="philosophy">
         <div class="container layout-split">
-            <div class="col left" style="display: flex; gap: 2rem;">
+            <div class="col left">
                 <h2 class="section-title fade-up">The Art of<br>Hospitality</h2>
-                <div class="graphic-lines" style="height: 100%; left: 30%;"></div>
+                <div class="graphic-lines"></div>
             </div>
             <div class="col right">
-                <p class="large-text fade-up" style="max-width: 600px; padding-left: 3rem; border-left: 1px solid rgba(44,42,37,0.1);">Rooted in the tradition of Omotenashi, we anticipate needs before they arise. Our approach is quiet, deliberate, and uncompromisingly precise, ensuring every event unfolds seamlessly.</p>
+                <p class="large-text fade-up">Rooted in the tradition of Omotenashi, we anticipate needs before they arise. Our approach is quiet, deliberate, and uncompromisingly precise, ensuring every event unfolds seamlessly.</p>
                 <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=80" alt="Omotenashi" class="reveal-img parallax-img mt-5 filter-sepia">
             </div>
         </div>
@@ -158,37 +91,37 @@
         </div>
         
         <!-- Service 1 -->
-        <div class="service-row editorial-border" style="border-radius: 0; margin-bottom: 5rem;">
+        <div class="service-row editorial-border">
             <div class="service-img-wrapper reveal-img">
                 <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80" class="parallax-img filter-sepia" alt="Corporate Events">
             </div>
-            <div class="service-content relative" style="padding-left: 4rem;">
-                <h3 class="fade-up" style="font-size: 8rem; position: absolute; right: 0; top: -3rem; color: rgba(44,42,37,0.03); z-index: 0; pointer-events: none;">Corporate</h3>
-                <h3 class="split-text mb-4" style="font-size: 3rem;">Corporate Galas</h3>
+            <div class="service-content relative">
+                <h3 class="fade-up" style="position: absolute; right: 0; top: -3rem; color: rgba(44,42,37,0.03); z-index: 0; pointer-events: none;">Corporate</h3>
+                <h3 class="split-text mb-4">Corporate Galas</h3>
                 <p class="fade-up">From high-profile brand launches to executive summits, we architect corporate experiences that align with your strategic vision and elevate brand prestige.</p>
             </div>
         </div>
 
         <!-- Service 2 -->
-        <div class="service-row reverse editorial-border" style="border-radius: 0;">
+        <div class="service-row reverse editorial-border">
             <div class="service-img-wrapper reveal-img">
                 <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80" class="parallax-img filter-sepia" alt="Luxury Weddings">
             </div>
-            <div class="service-content relative" style="padding-right: 4rem;">
-                <h3 class="fade-up" style="font-size: 8rem; position: absolute; left: 0; top: -3rem; color: rgba(44,42,37,0.03); z-index: 0; pointer-events: none;">Weddings</h3>
-                <h3 class="split-text mb-4" style="font-size: 3rem;">Luxury Weddings</h3>
+            <div class="service-content relative">
+                <h3 class="fade-up" style="position: absolute; left: 0; top: -3rem; color: rgba(44,42,37,0.03); z-index: 0; pointer-events: none;">Weddings</h3>
+                <h3 class="split-text mb-4">Luxury Weddings</h3>
                 <p class="fade-up">Uncompromising aesthetic direction, spectacular venues, and flawless execution. We manage complex logistics so you can remain present in the moment.</p>
             </div>
         </div>
 
         <!-- Service 3 -->
-        <div class="service-row editorial-border" style="border-radius: 0;">
+        <div class="service-row editorial-border">
             <div class="service-img-wrapper reveal-img">
                 <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" class="parallax-img filter-sepia" alt="Stage Production">
             </div>
-            <div class="service-content relative" style="padding-left: 4rem;">
-                <h3 class="fade-up" style="font-size: 8rem; position: absolute; right: 0; top: -3rem; color: rgba(44,42,37,0.03); z-index: 0; pointer-events: none;">Production</h3>
-                <h3 class="split-text mb-4" style="font-size: 3rem;">Stage & Production</h3>
+            <div class="service-content relative">
+                <h3 class="fade-up" style="position: absolute; right: 0; top: -3rem; color: rgba(44,42,37,0.03); z-index: 0; pointer-events: none;">Production</h3>
+                <h3 class="split-text mb-4">Stage & Production</h3>
                 <p class="fade-up">State-of-the-art lighting, immersive soundscapes, and breathtaking set design. We transform empty spaces into cinematic worlds.</p>
             </div>
         </div>
@@ -202,46 +135,24 @@
         </div>
         <div class="swiper portfolio-swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide portfolio-item hover-view">
-                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1500&q=80" alt="Kyoto Summit" class="p-img">
-                    <div class="p-overlay">
-                        <div class="p-info">
-                            <span class="p-cat">Corporate Gala</span>
-                            <h3>The Kyoto Tech Summit</h3>
-                            <span class="p-loc">Miami, FL • 2025</span>
+                @forelse($portfolioItems as $item)
+                    <div class="swiper-slide portfolio-item hover-view">
+                        <img src="{{ asset('storage/' . $item->image_url) }}" alt="{{ $item->title }}" class="p-img">
+                        <div class="p-overlay">
+                            <div class="p-info">
+                                <span class="p-cat">{{ $item->category }}</span>
+                                <h3>{{ $item->title }}</h3>
+                                <span class="p-loc">{{ $item->location }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide portfolio-item hover-view">
-                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Sakura Launch" class="p-img">
-                    <div class="p-overlay">
-                        <div class="p-info">
-                            <span class="p-cat">Brand Launch</span>
-                            <h3>Sakura Cosmetics</h3>
-                            <span class="p-loc">Palm Beach, FL • 2025</span>
+                @empty
+                    <div class="swiper-slide portfolio-item hover-view" style="display: flex; align-items: center; justify-content: center; background: #eaddcf;">
+                        <div style="text-align: center;">
+                            <h3>Coming Soon</h3>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide portfolio-item hover-view">
-                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ethereal Wedding" class="p-img">
-                    <div class="p-overlay">
-                        <div class="p-info">
-                            <span class="p-cat">Luxury Wedding</span>
-                            <h3>Ethereal Romance</h3>
-                            <span class="p-loc">Orlando, FL • 2024</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide portfolio-item hover-view">
-                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80" alt="Luxury Weddings" class="p-img">
-                    <div class="p-overlay">
-                        <div class="p-info">
-                            <span class="p-cat">VIP Private</span>
-                            <h3>The Midnight Gala</h3>
-                            <span class="p-loc">Tokyo, JP • 2024</span>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
@@ -350,23 +261,6 @@
         </div>
     </section>
 
-    <!-- 11. Trusted By (Infinite Scroll) -->
-    <section class="section trusted" id="trusted">
-        <div class="container text-center">
-            <p class="section-label mb-4">Trusted By Visionaries</p>
-            <div class="swiper trusted-swiper">
-                <div class="swiper-wrapper">
-                    <!-- Text placeholders for logos -->
-                    <div class="swiper-slide"><h2>Lexus</h2></div>
-                    <div class="swiper-slide"><h2>Four Seasons</h2></div>
-                    <div class="swiper-slide"><h2>Aman</h2></div>
-                    <div class="swiper-slide"><h2>Forbes</h2></div>
-                    <div class="swiper-slide"><h2>Rolex</h2></div>
-                    <div class="swiper-slide"><h2>Vogue</h2></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- 12. Video Showcase -->
     <section class="section video-showcase hover-play" id="video">
@@ -491,17 +385,23 @@
                 </div>
             </div>
             <div class="col right">
-                <form class="glass-form fade-up">
+                @if(session('success'))
+                    <div class="alert-success fade-up mb-4" style="padding: 1rem; border: 1px solid rgba(44,42,37,0.2); background: rgba(44,42,37,0.05); text-align: center;">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <form action="{{ route('contact.submit') }}" method="POST" class="glass-form fade-up">
+                    @csrf
                     <div class="input-group">
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name" required>
                         <label for="name">Your Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                         <label for="email">Email Address</label>
                     </div>
                     <div class="input-group">
-                        <select id="type" required>
+                        <select id="type" name="type" required>
                             <option value="" disabled selected></option>
                             <option value="corporate">Corporate Gala</option>
                             <option value="wedding">Luxury Wedding</option>
@@ -510,7 +410,7 @@
                         <label for="type">Event Type</label>
                     </div>
                     <div class="input-group">
-                        <textarea id="message" rows="4" required></textarea>
+                        <textarea id="message" name="message" rows="4" required></textarea>
                         <label for="message">Your Vision</label>
                     </div>
                     <button type="submit" class="btn-luxury magnetic w-100">Send Inquiry</button>
@@ -519,56 +419,4 @@
         </div>
     </section>
 
-    <!-- 18. Premium Footer -->
-    <footer class="luxury-footer">
-        <div class="container">
-            <div class="footer-top">
-                <h2 class="footer-logo">Yunara</h2>
-                <div class="footer-links">
-                    <div class="f-col">
-                        <h4>Explore</h4>
-                        <a href="#services">Services</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#casestudy">Case Studies</a>
-                    </div>
-                    <div class="f-col">
-                        <h4>Company</h4>
-                        <a href="#philosophy">Philosophy</a>
-                        <a href="#team">The Artisans</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                    <div class="f-col">
-                        <h4>Social</h4>
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Pinterest</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Yunara Productions. All rights reserved.</p>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- GSAP & Plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    
-    <!-- SplitType -->
-    <script src="https://unpkg.com/split-type"></script>
-    
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    <!-- Custom JS -->
-    <script src="{{ asset('js/script.js') }}"></script>
-</body>
-</html>
+@endsection
