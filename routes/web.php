@@ -28,10 +28,12 @@ Route::prefix('admin')->group(function () {
         
         Route::get('/gallery', [\App\Http\Controllers\AdminController::class, 'gallery'])->name('gallery.index');
         Route::post('/gallery', [\App\Http\Controllers\AdminController::class, 'storeGallery'])->name('gallery.store');
+        Route::post('/gallery/{id}/update', [\App\Http\Controllers\AdminController::class, 'updateGallery'])->name('gallery.update');
         Route::post('/gallery/{id}/delete', [\App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('gallery.delete');
         
         Route::get('/portfolio', [\App\Http\Controllers\AdminController::class, 'portfolio'])->name('portfolio.index');
         Route::post('/portfolio', [\App\Http\Controllers\AdminController::class, 'storePortfolio'])->name('portfolio.store');
+        Route::post('/portfolio/{id}/update', [\App\Http\Controllers\AdminController::class, 'updatePortfolio'])->name('portfolio.update');
         Route::post('/portfolio/{id}/delete', [\App\Http\Controllers\AdminController::class, 'deletePortfolio'])->name('portfolio.delete');
         
         Route::get('/submissions', [\App\Http\Controllers\AdminController::class, 'submissions'])->name('submissions.index');

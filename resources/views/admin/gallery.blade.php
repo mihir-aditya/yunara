@@ -83,12 +83,68 @@
                             <p class="m-0 mt-1 text-muted small" style="max-width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $item->description }}</p>
                         </td>
                         <td class="text-end pe-4">
+                            <button type="button" class="btn btn-outline-primary btn-sm rounded-0 me-1" data-bs-toggle="modal" data-bs-target="#editGalleryModal{{ $item->id }}">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
                             <form action="{{ route('admin.gallery.delete', $item->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger btn-sm rounded-0" onclick="return confirm('Delete this item? This action cannot be undone.')">
                                     <i class="fas fa-trash"></i> Delete
                                 </button>
                             </form>
+
+                            <!-- Edit Modal -->
+                            <div class="modal fade text-start" id="editGalleryModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content rounded-0">
+                                        <form action="{{ route('admin.gallery.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Edit Gallery Item</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Title</label>
+                                                    <input type="text" name="title" class="form-control rounded-0" value="{{ $item->title }}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Media File (Leave blank to keep current)</label>
+                                                    <input type="file" name="media_file" class="form-control rounded-0">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Description</label>
+                                                    <textarea name="description" class="form-control rounded-0" rows="2">{{ $item->description }}</textarea>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6 mb-3">
+                                                        <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Media Type</label>
+                                                        <select name="media_type" class="form-select rounded-0">
+                                                            <option value="image" {{ $item->media_type == 'image' ? 'selected' : '' }}>Image</option>
+                                                            <option value="video" {{ $item->media_type == 'video' ? 'selected' : '' }}>Video</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-6 mb-3">
+                                                        <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Aspect Ratio</label>
+                                                        <select name="aspect_ratio" class="form-select rounded-0">
+                                                            <option value="16-9" {{ $item->aspect_ratio == '16-9' ? 'selected' : '' }}>16:9 (Horizontal)</option>
+                                                            <option value="9-16" {{ $item->aspect_ratio == '9-16' ? 'selected' : '' }}>9:16 (Vertical)</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12 mb-3">
+                                                        <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Sort Order</label>
+                                                        <input type="number" name="sort_order" class="form-control rounded-0" value="{{ $item->sort_order }}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-primary rounded-0" style="background:var(--color-primary); border:none;">Save Changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @empty

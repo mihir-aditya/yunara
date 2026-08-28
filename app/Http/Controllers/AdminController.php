@@ -42,6 +42,33 @@ class AdminController extends Controller
         return back()->with('success', 'Gallery item added!');
     }
 
+    public function updateGallery(Request $request, $id)
+    {
+        $item = GalleryItem::findOrFail($id);
+        
+        $data = $request->validate([
+            'title' => 'required|string',
+            'description' => 'nullable|string',
+            'media_type' => 'required|in:image,video',
+            'aspect_ratio' => 'required|in:16-9,9-16',
+            'sort_order' => 'required|integer',
+            'media_file' => 'nullable|file',
+        ]);
+
+        if ($request->hasFile('media_file')) {
+            if (Storage::disk('public')->exists($item->media_url)) {
+                Storage::disk('public')->delete($item->media_url);
+            }
+            $path = $request->file('media_file')->store('gallery', 'public');
+            $data['media_url'] = $path;
+        }
+        
+        unset($data['media_file']);
+        
+        $item->update($data);
+        return back()->with('success', 'Gallery item updated!');
+    }
+
     public function deleteGallery($id)
     {
         $item = GalleryItem::findOrFail($id);
@@ -74,6 +101,32 @@ class AdminController extends Controller
 
         PortfolioItem::create($data);
         return back()->with('success', 'Portfolio item added!');
+    }
+
+    public function updatePortfolio(Request $request, $id)
+    {
+        $item = PortfolioItem::findOrFail($id);
+        
+        $data = $request->validate([
+            'title' => 'required|string',
+            'category' => 'required|string',
+            'location' => 'required|string',
+            'sort_order' => 'required|integer',
+            'image_file' => 'nullable|image',
+        ]);
+
+        if ($request->hasFile('image_file')) {
+            if (Storage::disk('public')->exists($item->image_url)) {
+                Storage::disk('public')->delete($item->image_url);
+            }
+            $path = $request->file('image_file')->store('portfolio', 'public');
+            $data['image_url'] = $path;
+        }
+        
+        unset($data['image_file']);
+
+        $item->update($data);
+        return back()->with('success', 'Portfolio item updated!');
     }
 
     public function deletePortfolio($id)
