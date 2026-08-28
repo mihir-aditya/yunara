@@ -1,5 +1,5 @@
 /* ==========================================================================
-   YUNARA PRODUCTIONS — MAIN STYLESHEET
+   YUNARA PRODUCTIONS Ã¢â‚¬â€ MAIN STYLESHEET
    Mobile-first, fully responsive.
    Breakpoints: 480 / 768 / 1024 / 1440
    ========================================================================== */
@@ -372,7 +372,7 @@ body.nav-open { overflow: hidden; }
 }
 
 /* ==========================================================================
-   2. Philosophy — layout-split stacks on mobile
+   2. Philosophy Ã¢â‚¬â€ layout-split stacks on mobile
    ========================================================================== */
 .layout-split {
     display: grid;
@@ -412,7 +412,7 @@ body.nav-open { overflow: hidden; }
 }
 
 /* ==========================================================================
-   3. Why Yunara — Values grid
+   3. Why Yunara Ã¢â‚¬â€ Values grid
    ========================================================================== */
 .values-grid {
     display: grid;
@@ -462,7 +462,7 @@ body.nav-open { overflow: hidden; }
 }
 
 /* ==========================================================================
-   5. Services — alternating rows, stack + de-scale ghost text on mobile
+   5. Services Ã¢â‚¬â€ alternating rows, stack + de-scale ghost text on mobile
    ========================================================================== */
 .service-row {
     display: flex;
@@ -579,7 +579,7 @@ body.nav-open { overflow: hidden; }
 @media (min-width: 1024px) { .cs-gallery img { height: 420px; } }
 
 /* ==========================================================================
-   8. Behind the Scenes — Masonry gallery
+   8. Behind the Scenes Ã¢â‚¬â€ Masonry gallery
    ========================================================================== */
 .masonry-gallery {
     display: grid;
@@ -601,7 +601,7 @@ body.nav-open { overflow: hidden; }
 .m-item.wide { grid-column: span 2; }
 
 /* ==========================================================================
-   9. Process — Vertical timeline
+   9. Process Ã¢â‚¬â€ Vertical timeline
    ========================================================================== */
 .vertical-timeline { position: relative; padding-left: 32px; max-width: 760px; margin: 0 auto; }
 .vt-line {
@@ -947,3 +947,38 @@ body.nav-open { overflow: hidden; }
 
 /* Magnetic buttons: smooth spring-back if JS transform is cleared */
 .magnetic { transition: transform 0.4s var(--ease); }
+
+/* Luxury Popup for Contact Form */
+.luxury-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.luxury-popup.active {
+    opacity: 1;
+}
+.luxury-popup .popup-content {
+    background: var(--color-bg);
+    padding: 3.5rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid var(--color-hairline);
+    transform: translateY(30px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.luxury-popup.active .popup-content {
+    transform: translateY(0);
+}

@@ -22,6 +22,10 @@ class ContactController extends Controller
 
         Mail::to($validated['email'])->send(new ContactConfirmation($validated));
 
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json(['success' => true, 'message' => 'Your inquiry has been received. Our concierge will contact you soon.']);
+        }
+
         return redirect()->back()->with('success', 'Your inquiry has been received. Our concierge will contact you soon.');
     }
 }

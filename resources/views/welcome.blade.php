@@ -379,7 +379,7 @@
                 <h2 class="section-title split-text">Begin Your<br>Journey</h2>
                 <p class="mt-3 fade-up">Contact our team to discuss your next masterpiece.</p>
                 <div class="contact-details mt-5 fade-up">
-                    <p><strong>Email</strong><br>concierge@yunaraproductions.com</p>
+                    <p><strong>Email</strong><br>valentin@yunaraproductions.com</p>
                     <p class="mt-3"><strong>Phone</strong><br>+1 (800) 555-YUNA</p>
                     <p class="mt-3"><strong>Office</strong><br>Miami, Florida</p>
                 </div>
@@ -390,7 +390,17 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <form action="{{ route('contact.submit') }}" method="POST" class="glass-form fade-up">
+                
+                <!-- Success Popup -->
+                <div id="formSuccessPopup" class="luxury-popup" style="display: none;">
+                    <div class="popup-content">
+                        <h3 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Inquiry Received</h3>
+                        <p style="font-size: 1.1rem; color: var(--color-text-light);">Your request is submitted successfully. Our concierge will contact you soon.</p>
+                        <button type="button" class="btn-luxury magnetic popup-close mt-4" style="width: 100%;">Close</button>
+                    </div>
+                </div>
+
+                <form id="contactForm" action="{{ route('contact.submit') }}" method="POST" class="glass-form fade-up">
                     @csrf
                     <div class="input-group">
                         <input type="text" id="name" name="name" required>
@@ -406,6 +416,12 @@
                             <option value="corporate">Corporate Gala</option>
                             <option value="wedding">Luxury Wedding</option>
                             <option value="private">Private VIP Event</option>
+                            <option value="brand">Brand Activation</option>
+                            <option value="launch">Product Launch</option>
+                            <option value="award">Award Ceremony</option>
+                            <option value="charity">Charity Gala</option>
+                            <option value="retreat">Exclusive Retreat</option>
+                            <option value="other">Other</option>
                         </select>
                         <label for="type">Event Type</label>
                     </div>
@@ -419,4 +435,58 @@
         </div>
     </section>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const popup = document.getElementById('formSuccessPopup');
+        const popupClose = popup.querySelector('.popup-close');
+
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerText;
+                submitBtn.innerText = 'Sending...';
+                submitBtn.disabled = true;
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        popup.style.display = 'flex';
+                        // Trigger reflow
+                        void popup.offsetWidth;
+                        popup.classList.add('active');
+                        contactForm.reset();
+                    }
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                });
+            });
+        }
+
+        if(popupClose) {
+            popupClose.addEventListener('click', function() {
+                popup.classList.remove('active');
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 400);
+            });
+        }
+    });
+    </script>
 @endsection
