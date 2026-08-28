@@ -113,7 +113,7 @@
     <div class="container">
         <div class="header">
             <!-- Absolute URL to the logo -->
-            <img src="{{ config('https://www.yunaraproductions.com') }}/assets/logo.png" alt="Yunara Productions">
+            <img src="https://www.yunaraproductions.com/assets/logo.png" alt="Yunara Productions">
             <br>
             <span class="accent"></span>
             <h1>Yunara Productions</h1>
@@ -121,7 +121,8 @@
         <div class="content">
             <h2>Dear {{ $data['name'] }},</h2>
             <p>Thank you for reaching out to Yunara Productions. We have successfully received your inquiry regarding a
-                <strong>{{ $data['type'] }}</strong>.</p>
+                <strong>{{ $data['type'] }}</strong>.
+            </p>
             <p>Our concierge team is currently reviewing your vision and will be in touch with you shortly to discuss
                 how we can bring your luxury event to life.</p>
             <br>
