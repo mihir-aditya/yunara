@@ -13,6 +13,34 @@ Route::get('/gallery', function () {
     return view('gallery', compact('galleryItems'));
 })->name('gallery');
 
+Route::get('/robots.txt', function () {
+    $content = "User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: " . url('/sitemap.xml');
+    return response($content, 200)->header('Content-Type', 'text/plain');
+});
+
+Route::get('/sitemap.xml', function () {
+    $content = '<?xml version="1.0" encoding="UTF-8"?>';
+    $content .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+    
+    // Home
+    $content .= '<url>';
+    $content .= '<loc>' . route('home') . '</loc>';
+    $content .= '<changefreq>weekly</changefreq>';
+    $content .= '<priority>1.0</priority>';
+    $content .= '</url>';
+    
+    // Gallery
+    $content .= '<url>';
+    $content .= '<loc>' . route('gallery') . '</loc>';
+    $content .= '<changefreq>weekly</changefreq>';
+    $content .= '<priority>0.8</priority>';
+    $content .= '</url>';
+    
+    $content .= '</urlset>';
+    
+    return response($content, 200)->header('Content-Type', 'text/xml');
+});
+
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::prefix('admin')->group(function () {

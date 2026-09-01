@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'Curated Gallery | Yunara Productions Luxury Events')
+@section('meta_description', 'Explore our visual journey of bespoke luxury events, corporate galas, and private VIP experiences curated by Yunara Productions.')
+@section('meta_keywords', 'event gallery, luxury events portfolio, Yunara event pictures, Miami luxury weddings')
+
 @section('content')
     <!-- Premium Header -->
     <section class="section gallery-header" style="padding-top: 200px; padding-bottom: 50px; text-align: center;">

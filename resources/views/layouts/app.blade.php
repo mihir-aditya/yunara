@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yunara Productions | Luxury Event Management</title>
-    <meta name="description" content="Florida's premier luxury event management and production company. Experience Omotenashi.">
+    <title>@yield('title', 'Yunara Productions | Luxury Event Management & Production in Florida')</title>
+    <meta name="description" content="@yield('meta_description', 'Florida\'s premier luxury event management and production company. Experience Omotenashi with bespoke corporate galas, weddings, and private VIP events.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'luxury event management, event production, corporate galas, luxury weddings, VIP events, Miami, Florida, Yunara Productions')">
+    <link rel="canonical" href="{{ url()->current() }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'Yunara Productions | Luxury Event Management')">
+    <meta property="og:description" content="@yield('meta_description', 'Florida\'s premier luxury event management and production company. Experience Omotenashi.')">
+    <meta property="og:image" content="{{ asset('assets/og-image.jpg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="@yield('title', 'Yunara Productions | Luxury Event Management')">
+    <meta property="twitter:description" content="@yield('meta_description', 'Florida\'s premier luxury event management and production company. Experience Omotenashi.')">
+    <meta property="twitter:image" content="{{ asset('assets/og-image.jpg') }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('assets/logo.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('assets/logo.png') }}">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
