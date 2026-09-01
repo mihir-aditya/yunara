@@ -110,7 +110,7 @@
                     </div>
                     <div class="f-col">
                         <h4>Social</h4>
-                        <a href="#">Instagram</a>
+                        <a href="https://www.instagram.com/yunaraproductions/" target="_blank" rel="noopener noreferrer">Instagram</a>
                         <a href="#">LinkedIn</a>
                         <a href="#">Pinterest</a>
                     </div>
