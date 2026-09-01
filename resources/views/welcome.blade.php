@@ -466,6 +466,8 @@
                         void popup.offsetWidth;
                         popup.classList.add('active');
                         contactForm.reset();
+                    } else if (data.message) {
+                        alert(data.message);
                     }
                     submitBtn.innerText = originalText;
                     submitBtn.disabled = false;
