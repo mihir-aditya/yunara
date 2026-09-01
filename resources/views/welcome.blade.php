@@ -380,7 +380,7 @@
                 <p class="mt-3 fade-up">Contact our team to discuss your next masterpiece.</p>
                 <div class="contact-details mt-5 fade-up">
                     <p><strong>Email</strong><br>valentin@yunaraproductions.com</p>
-                    <p class="mt-3"><strong>Office</strong><br>Miami, Florida</p>
+                    <p class="mt-3"><strong>Office</strong><br>Orlando, Florida</p>
                 </div>
             </div>
             <div class="col right">

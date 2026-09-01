@@ -133,7 +133,7 @@
         </div>
         <div class="footer">
             &copy; {{ date('Y') }} Yunara Productions. All rights reserved.<br>
-            Miami, Florida
+            Orlando, Florida
         </div>
     </div>
 </body>

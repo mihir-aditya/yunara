@@ -2,7 +2,7 @@
 
 @section('title', 'Curated Gallery | Yunara Productions Luxury Events')
 @section('meta_description', 'Explore our visual journey of bespoke luxury events, corporate galas, and private VIP experiences curated by Yunara Productions.')
-@section('meta_keywords', 'event gallery, luxury events portfolio, Yunara event pictures, Miami luxury weddings')
+@section('meta_keywords', 'event gallery, luxury events portfolio, Yunara event pictures, Orlando luxury weddings')
 
 @section('content')
     <!-- Premium Header -->

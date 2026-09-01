@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Location & Year</label>
-                        <input type="text" name="location" class="form-control rounded-0" placeholder="e.g. Miami, FL • 2025" required>
+                        <input type="text" name="location" class="form-control rounded-0" placeholder="e.g. Orlando, FL • 2025" required>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label text-uppercase" style="font-size:0.75rem; letter-spacing:0.1em; font-weight:600;">Sort Order</label>

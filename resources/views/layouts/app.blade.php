@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Yunara Productions | Luxury Event Management & Production in Florida')</title>
     <meta name="description" content="@yield('meta_description', 'Florida\'s premier luxury event management and production company. Experience Omotenashi with bespoke corporate galas, weddings, and private VIP events.')">
-    <meta name="keywords" content="@yield('meta_keywords', 'luxury event management, event production, corporate galas, luxury weddings, VIP events, Miami, Florida, Yunara Productions')">
+    <meta name="keywords" content="@yield('meta_keywords', 'luxury event management, event production, corporate galas, luxury weddings, VIP events, Orlando, Florida, Yunara Productions')">
     <link rel="canonical" href="{{ url()->current() }}">
     
     <!-- Open Graph / Facebook -->
